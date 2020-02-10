@@ -1,4 +1,4 @@
-package com.pheobe;
+package com.pheobe.grammar;
 
 import java.util.Scanner;
 

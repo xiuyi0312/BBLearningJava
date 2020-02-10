@@ -1,4 +1,4 @@
-package com.pheobe;
+package com.pheobe.level1;
 
 import java.util.Arrays;
 import java.util.Random;

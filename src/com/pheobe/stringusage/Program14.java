@@ -1,17 +1,12 @@
-package com.pheobe.word;
+package com.pheobe.stringusage;
 
 import java.util.Scanner;
 
-public class Program15 {
+public class Program14 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String wordA = scanner.next();
         String wordB = scanner.next();
-        String res = commonLetters(wordA, wordB);
-        System.out.println(res);
-    }
-
-    public static String commonLetters(String wordA, String wordB) {
         //tolowercase返回小写字母，比如HaliFax会变成halifax
         wordA = wordA.toLowerCase();
         wordB = wordB.toLowerCase();
@@ -24,6 +19,6 @@ public class Program15 {
                 }
             }
         }
-        return result;
+        System.out.println(result);
     }
 }

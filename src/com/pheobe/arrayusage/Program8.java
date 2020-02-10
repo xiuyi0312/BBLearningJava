@@ -1,4 +1,4 @@
-package com.pheobe;
+package com.pheobe.arrayusage;
 
 import java.util.Scanner;
 

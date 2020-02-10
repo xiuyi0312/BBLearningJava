@@ -1,4 +1,4 @@
-package com.pheobe;
+package com.pheobe.methodusage;
 
 import java.util.Arrays;
 import java.util.Scanner;

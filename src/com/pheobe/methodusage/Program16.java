@@ -1,4 +1,4 @@
-package com.pheobe.word;
+package com.pheobe.methodusage;
 
 import java.util.Scanner;
 

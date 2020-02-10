@@ -1,4 +1,4 @@
-package com.pheobe.yuanxiao;
+package com.pheobe.stringusage;
 
 import java.util.Scanner;
 

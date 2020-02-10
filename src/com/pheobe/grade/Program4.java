@@ -1,4 +1,4 @@
-package com.pheobe;
+package com.pheobe.grade;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package com.pheobe;
+package com.pheobe.stringusage;
 
 import java.util.Scanner;
 
@@ -25,15 +25,6 @@ public class Program12 {
         System.out.println(count);
         return;
     }
-
-
-
-
-
-
-
-
-
 
     private static boolean isVowel1(char a) {
         return a == 'a' || a == 'e' || a == 'i' || a == 'o' || a == 'u'
