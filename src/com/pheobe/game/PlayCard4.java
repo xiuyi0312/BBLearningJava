@@ -10,14 +10,14 @@ public class PlayCard4 {
     private static String[] remainingCards;
     private static String currentDiscardedCard;
     private static int stepWhenPlayersPlayCard = -1;
-    private static int stepWhenPlaysPlayLocoCard = -1;
+    //    private static int stepWhenPlaysPlayLocoCard = -1;
     private static int step = -1;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int playerCount = Integer.parseInt(scanner.nextLine());
+        int playCount = Integer.parseInt(scanner.nextLine());
         List<ArrayList<String>> playerCards = new ArrayList<>();
-        for (int i = 0; i < playerCount; i++) {
+        for (int i = 0; i < playCount; i++) {
             ArrayList<String> cardsForPlayer = new ArrayList<>();
             String[] inputForPlayer = scanner.nextLine().split(" ");
             cardsForPlayer.addAll(Arrays.asList(inputForPlayer));
@@ -38,9 +38,9 @@ public class PlayCard4 {
 //                System.out.println((i+1) + ": " + Arrays.toString(copyCards.toArray()));
                 String colorForCurrentCard = currentDiscardedCard.substring(0, 1);
                 String numberForCurrentCard = currentDiscardedCard.substring(1, 2);
-                if (!currentLocoCard.equals("") && (stepWhenPlaysPlayLocoCard + 1 == step)) {// 出牌前要先判断上一个玩家是不是指定了颜色，当上一玩家除了?8并指定了颜色
+                if (!currentLocoCard.equals("")) {// 出牌前要先判断上一个玩家是不是指定了颜色，当上一玩家除了?8并指定了颜色
                     List<String> locoCards = findLocoCard(cards);
-                    if (locoCards.isEmpty()) {// 当前玩家没有LOCO卡
+                    if (locoCards.isEmpty()) {// 没有?8的牌
                         // 找上一玩家指定颜色的卡
                         List<String> matchedLocoCardWithSameColor = findCardsWithSameColor(currentLocoCard, cards);
                         if (matchedLocoCardWithSameColor.isEmpty()) {// 无牌可出
@@ -54,6 +54,7 @@ public class PlayCard4 {
                             } else {
                                 System.out.println();
                             }
+                            currentLocoCard = "";
                         }
                     } else {// 当前玩家有LOCO卡
                         // 按照颜色顺序选出一张LOCO卡
@@ -63,7 +64,6 @@ public class PlayCard4 {
                             finished = true;
                         } else {// 指定下一玩家要出的颜色
                             currentLocoCard = findColorForNextPlayer(cards);
-                            stepWhenPlaysPlayLocoCard = step;
                             System.out.println(" LOCO " + currentLocoCard);
                         }
                     }
@@ -86,6 +86,7 @@ public class PlayCard4 {
                         } else {
                             System.out.println();
                         }
+                        currentLocoCard = "";
                     }
                     continue;
                 }
@@ -97,6 +98,7 @@ public class PlayCard4 {
                     // 从数字相同的牌里按照规定的颜色优先顺序寻找最合适的牌
                     handleCardForSameNumber(numberForCurrentCard, cards, i, matchedCardForSameNumber);
                     if (cards.isEmpty()) {
+                        currentLocoCard = "";
                         System.out.println(" (WINNER)");
                         finished = true;
                     } else {
@@ -104,15 +106,16 @@ public class PlayCard4 {
                         String chosenCard = findChosenCard(copyCards, cards);
                         if (chosenCard.endsWith("8")) {//出得是LOCO卡，那么还需要出一张颜色
                             currentLocoCard = findColorForNextPlayer(cards);
-                            stepWhenPlaysPlayLocoCard = step;
                             System.out.println(" LOCO " + currentLocoCard);
                         } else {
+                            currentLocoCard = "";
                             System.out.println();
                         }
                     }
                 } else {
                     handleCardForSameColor(colorForCurrentCard, cards, i, matchedCardForSameColor);
                     if (cards.size() == 0) {//当前玩家牌出完了，则他为WINNER
+                        currentLocoCard = "";
                         System.out.println(" (WINNER)");
                         finished = true;
                     } else {
@@ -120,9 +123,9 @@ public class PlayCard4 {
                         String chosenCard = findChosenCard(copyCards, cards);
                         if (chosenCard.endsWith("8")) {//出得是LOCO卡，那么还需要出一张颜色
                             currentLocoCard = findColorForNextPlayer(cards);
-                            stepWhenPlaysPlayLocoCard = step;
                             System.out.println(" LOCO " + currentLocoCard);
                         } else {
+                            currentLocoCard = "";
                             System.out.println();
                         }
                     }
