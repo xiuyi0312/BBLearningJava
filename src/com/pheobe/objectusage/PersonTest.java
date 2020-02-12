@@ -11,6 +11,8 @@ public class PersonTest {
         Person person1 = new Person(line1, line2);// construct person1
         Person person2 = new Person(line1, line2);// construct person2
 
+        System.out.println(person1.getFirstName());
+        System.out.println(person1.getLastName());
         System.out.println(person1.toString());
         System.out.println(person2.toString());
     }

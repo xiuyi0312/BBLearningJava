@@ -16,6 +16,23 @@ public class Person {
     // ===========================
     // PLEASE END YOUR CODE HERE
 
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     //constructor
     public Person(String firstName, String lastName) {
         this.firstName = firstName;
