@@ -8,7 +8,7 @@ public class SBRCTest {
         Student phoebe = new Student(1001, "Phoebe", "Wang");
         Student yanfei = new Student(1002, "Yanfei", "Wang");
 
-        System.out.println(phoebe);
+        System.out.println(phoebe.toString());
         System.out.println(yanfei);
 
         Building building = new Building("A", 5, "Dal");
@@ -23,5 +23,11 @@ public class SBRCTest {
         System.out.println(cs);
         cs.registerStudent(yanfei);
         System.out.println(cs);
+
+        // 测试重复为同一个人注册课程的场景
+        int result = cs.registerStudent(phoebe);
+        if(result == -1) {
+            System.out.println("ERROR：" + phoebe.getName() + "已注册该课程");
+        }
     }
 }
