@@ -12,7 +12,7 @@ public class Card {
     }
 
     public char getNumber() {
-        return card.charAt(1);
+        return (char) Integer.parseInt(card.substring(1, 2));
     }
 
     public boolean matches(Card other) {
