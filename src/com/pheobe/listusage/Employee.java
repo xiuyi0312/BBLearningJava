@@ -35,7 +35,7 @@ public class Employee {
     }
 
     public boolean equals(Employee other) {
-        return name.equals(other.getName());
-//        return registry.equals(other.getRegistry());
+//        return name.equals(other.getName());
+        return registry.equals(other.getRegistry());
     }
 }
