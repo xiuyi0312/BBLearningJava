@@ -1,0 +1,15 @@
+6
+Harvey Spector,1979,Juris Doctorate,specter@dal.ca,B00123456
+Donna Paulsen,1983,PhD in Awesome,donna@dal.ca,B00777888
+Mike Ross,1998,Master of Laws,mr342111@dal.ca,B00999333
+Saul Goodman,1962,Online Law Degree,betterCallSaul@BB.ca,BADBREAK002
+Louis Litt,1972,Juris Doctorate,litt@dal.ca,B00333444
+Jessica Pearson,1969,Juris Doctorate,mgr@pearsonhardman.ca,B00555555
+5
+B00123456 B00777888
+B00123456 B00999333
+B00123456 B00333444
+B00777888 B00999333
+B00555555 B00123456
+B00555555
+Juris Doctorate
