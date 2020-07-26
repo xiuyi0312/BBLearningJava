@@ -17,8 +17,8 @@ class Solution {
 
     public int trailingZeroes(int n) {
         int count5 = 0;
-        while(n > 0) {
-            count5 += n/5;
+        while (n > 0) {
+            count5 += n / 5;
             n /= 5;
         }
         return count5;
@@ -38,11 +38,11 @@ class Solution {
     public int reverse(int x) {
         String a = String.valueOf(x);
         StringBuilder stringBuilder = new StringBuilder();
-        if(a.startsWith("-")) {
+        if (a.startsWith("-")) {
             stringBuilder.append("-");
             a = a.substring(1);
         }
-        for (int i = a.length() -1 ; i >=0 ; i--) {
+        for (int i = a.length() - 1; i >= 0; i--) {
             stringBuilder.append(a.charAt(i));
         }
         try {
@@ -50,6 +50,49 @@ class Solution {
         } catch (Exception e) {
             return 0;
         }
+    }
+
+    public int searchInsert(int[] nums, int target) {
+        int start = 0;
+        int end = nums.length - 1;
+        while (start <= end) {
+            int mid = (start + end) / 2;
+            if (target == nums[mid]) {
+                return mid;
+            } else if (nums[mid] > target) {
+                end = mid - 1;
+            } else {
+                start = mid + 1;
+            }
+        }
+        return start;
+    }
+
+    public void rotate(int[][] matrix) {
+        // TODO: 2020/7/26
+    }
+
+    public int divide(int dividend, int divisor) {
+        // fixme: 2020/7/26
+        int count = 0;
+        int temp = 0;
+        boolean positive = divisor > 0;
+        boolean positive2 = dividend > 0;
+        if (!positive) {
+            divisor = -divisor;
+        }
+        if (!positive2) {
+            dividend = -dividend;
+        }
+        System.out.println("d1 = " + dividend + " d2 = " + divisor);
+        while (temp < dividend) {
+            count++;
+            temp += divisor;
+        }
+        if (temp > dividend) {
+            count--;
+        }
+        return positive && positive2 ? count : -count;
     }
 
     public static void main(String[] args) {
@@ -61,6 +104,10 @@ class Solution {
 
 //        System.out.println(s.lengthOfLastWord("hello word"));
 
-        System.out.println(s.reverse(-283848939));
+//        System.out.println(s.reverse(-283848939));
+
+//        System.out.println(s.searchInsert(new int[]{1, 3, 5, 6}, 0));
+
+        System.out.println(s.divide(-2147483648, -1));
     }
 }
