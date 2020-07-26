@@ -70,6 +70,22 @@ class Solution {
 
     public void rotate(int[][] matrix) {
         // TODO: 2020/7/26
+        // step1 : obviously you can imagine a horizontal line in the middle of the matrix
+        for(int i = 0; i< matrix.length/2;i++) {
+            for(int j = 0; j< matrix[0].length;j++) {
+                int t = matrix[i][j];
+                matrix[i][j] = matrix[matrix.length - i -1][j];
+                matrix[matrix.length - i -1][j] = t;
+            }
+        }
+        // step2 : imagine a diagonal line from left-top to right-bottom, swap the elements from each side;
+        for (int i = 0; i< matrix.length;i++) {
+            for (int j = 0; j < i; j++) {
+                int t = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = t;
+            }
+        }
     }
 
     public int divide(int dividend, int divisor) {
@@ -108,6 +124,14 @@ class Solution {
 
 //        System.out.println(s.searchInsert(new int[]{1, 3, 5, 6}, 0));
 
-        System.out.println(s.divide(-2147483648, -1));
+//        System.out.println(s.divide(-2147483648, -1));
+
+//        int[][] a = {
+//                {1, 2, 3, 4},
+//                {5, 6, 7, 8},
+//                {9, 10, 11, 12},
+//                {13, 14, 15, 16},
+//        };
+//        s.rotate(a);
     }
 }
