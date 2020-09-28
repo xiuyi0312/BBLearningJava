@@ -1,21 +1,16 @@
 package com.pheobe.algo;
 
+import java.util.Scanner;
+
 public class Prime {
     public static void main(String[] args) {
-        int[] positions = {
-                11,
-                101,
-                1001,
-                10001,
-                100001,
-                1000001
-        };
-        // traverse all the position in the array
-        for (int position : positions) {
+        int value = -1;
+        Scanner scanner = new Scanner(System.in);
+        while ((value = scanner.nextInt()) != 0) {
             long startTime = System.currentTimeMillis();
-            long result = nthPrime(position);
+            long result = nthPrime(value);
             long endTime = System.currentTimeMillis();
-            System.out.println(position + " " + result + " " + (endTime - startTime));
+            System.out.println(value + " " + result + " " + (endTime - startTime));
         }
     }
 
@@ -28,7 +23,6 @@ public class Prime {
                 count++;
             }
         }
-//        System.out.println("No." + count + " = " + startNumber);
         return startNumber;
     }
 
@@ -44,6 +38,8 @@ public class Prime {
      * @return true:是素数；false不是素数
      */
     public static boolean isPrime(long number) {
+        if (number < 2)
+            return false;
         for (int i = 2; i < number; i++) {
             if (number % i == 0) {
                 // find a num can divide this number, so it's not a prime
@@ -68,6 +64,8 @@ public class Prime {
      * @return
      */
     private static boolean isPrime1(long number) {
+        if (number < 2)
+            return false;
         for (int i = 2; i <= number / 2; i++) {
             if (number % i == 0) {
                 // find a num can divide this number, so it's not a prime
@@ -92,6 +90,7 @@ public class Prime {
      * @return
      */
     private static boolean isPrime2(long number) {
+        if (number < 2) return false;
         for (int i = 2; i <= (int) Math.sqrt(number); i++) {
             if (number % i == 0) {
                 // find a num can divide this number, so it's not a prime
